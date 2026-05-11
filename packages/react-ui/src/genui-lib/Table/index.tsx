@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 import { z } from "zod/v4";
 import { IconButton } from "../../components/IconButton";
+import { TableSkeleton } from "../../components/Skeleton";
 import {
   ScrollableTable as OpenUITable,
   TableBody as OpenUITableBody,
@@ -13,7 +14,6 @@ import {
   TableHeader as OpenUITableHeader,
   TableRow as OpenUITableRow,
 } from "../../components/Table";
-import { TableSkeleton } from "../../components/Skeleton";
 import { asArray } from "../helpers";
 import { ColSchema } from "./schema";
 
@@ -49,9 +49,7 @@ export const Table = defineComponent({
         data: asArray(c.props?.data ?? []),
       }));
 
-    const rowCount = colDefs.length > 0
-      ? Math.max(...colDefs.map((c) => c.data.length), 0)
-      : 0;
+    const rowCount = colDefs.length > 0 ? Math.max(...colDefs.map((c) => c.data.length), 0) : 0;
 
     if (isQueryLoading && rowCount === 0) {
       const skeletonCols = Math.max(colDefs.length || columns.length, 3);
