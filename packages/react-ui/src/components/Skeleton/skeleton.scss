@@ -1,0 +1,48 @@
+@use "../../cssUtils" as cssUtils;
+
+@keyframes openui-skeleton-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.openui-skeleton-bar {
+  background-color: cssUtils.$elevated-strong;
+  border-radius: cssUtils.$radius-xs;
+  animation: openui-skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.openui-skeleton-stack {
+  display: flex;
+  flex-direction: column;
+  gap: cssUtils.$space-s;
+}
+
+.openui-skeleton-table {
+  padding: cssUtils.$space-s 0;
+}
+
+.openui-skeleton-table-row {
+  display: grid;
+  gap: cssUtils.$space-m;
+  padding: cssUtils.$space-s-m cssUtils.$space-m;
+  border-bottom: 1px solid cssUtils.$border-default;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.openui-skeleton-table-cell {
+  height: 14px;
+}
+
+.openui-skeleton-table-cell-short {
+  width: 60%;
+}
