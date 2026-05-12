@@ -195,7 +195,7 @@ export const tools: ToolDef[] = [
     outputSchema: z.object({
       errors: z.array(z.object({ category: z.string(), count: z.number() })),
     }),
-    execute: async () => { await delay(TOOL_DELAY_MS); return getErrorBreakdown(); },
+    execute: async () => { await delay(TOOL_DELAY_MS * 2); return getErrorBreakdown(); },
   }),
   new ToolDef({
     name: "get_server_health",
